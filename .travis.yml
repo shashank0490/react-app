@@ -11,15 +11,15 @@ script:
   - docker run -e CI=true shashank0490/react-test npm test
 
 after_success:
-  - docker build -t shashank0490/multi-client ./complex/client
-  - docker build -t shashank0490/multi-nginx ./complex/nginx
-  - docker build -t shashank0490/multi-server ./complex/server
-  - docker build -t shashank0490/multi-worker ./complex/worker
+  - docker build -t shashank021/multi-client ./complex/client
+  - docker build -t shashank021/multi-nginx ./complex/nginx
+  - docker build -t shashank021/multi-server ./complex/server
+  - docker build -t shashank021/multi-worker ./complex/worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push shashank0490/multi-client
-  - docker push shashank0490/multi-nginx
-  - docker push shashank0490/multi-server
-  - docker push shashank0490/multi-worker
+  - docker push shashank021/multi-client
+  - docker push shashank021/multi-nginx
+  - docker push shashank021/multi-server
+  - docker push shashank021/multi-worker
   
