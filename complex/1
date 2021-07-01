@@ -1,0 +1,35 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+   {
+    "name": "client-con",
+    "image": "shashank021/multi-client",
+    "hostname": "client",
+    "essential": false
+   },
+   {
+    "name": "server-con",
+    "image": "shashank021/multi-server",
+    "hostname": api,
+    "essential": false
+   },
+   {
+    "name": "worker-con",
+    "image": "shashank021/multi-worker",
+    "hostname": "worker",
+    "essential": false
+   },
+   {
+    "name": "nginx-con",
+    "image": "shashank021/multi-nginx",
+    "essential": true,
+    "portMappings": [
+     {
+      "hostPort": 80,
+      "containerPort": 80
+     }
+    ],
+    "links": ["client-con","server-con"] 
+   } 	
+  ]
+}
